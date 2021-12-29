@@ -1,0 +1,23 @@
+dotenv: .env
+networks:
+  default: ganache-local
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+  eth-mainnet-fork:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+wallets:
+  METAMASK_ACCOUNT2_PRIVATE_KEY: ${METAMASK_ACCOUNT2_PRIVATE_KEY}
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - OpenZeppelin/openzeppelin-contracts@4.4.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+      - ‘@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1'
