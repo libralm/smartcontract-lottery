@@ -2,22 +2,40 @@ dotenv: .env
 networks:
   default: ganache-local
   rinkeby:
-    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
-    verify: True
+    usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    link_token: "0x01BE23585060835E02B77ef475b0Cc51aA1e0709"
+    vrf_cordinator: "0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B"
+    key_hash: '0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311'
+    fee: "0.1" 
+    verify: False
   development:
+    key_hash: '0xcaf3c3727e033261d383b315559476f48034c13b18f8cafed4d871abe5049186'
+    fee: "0.1"
     verify: False
   ganache-local:
+    key_hash: '0xcaf3c3727e033261d383b315559476f48034c13b18f8cafed4d871abe5049186'
+    fee: "0.1" 
     verify: False
   eth-mainnet-fork:
-    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+  bsc-main-fork:
+    usd_price_feed: "0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE"
+  bsc-test:
+    usd_price_feed: "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"
+    verify: True 
+    link_token: "0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06"
+    vrf_cordinator: "0xa555fC018435bef5A13C6c6870a9d4C11DEC329C"
+    key_hash: '0xcaf3c3727e033261d383b315559476f48034c13b18f8cafed4d871abe5049186'
+    fee: "0.1"
 wallets:
   METAMASK_ACCOUNT2_PRIVATE_KEY: ${METAMASK_ACCOUNT2_PRIVATE_KEY}
 dependencies:
   # - <organization/repo>@<version>
-  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - smartcontractkit/chainlink-brownie-contracts@0.2.2
   - OpenZeppelin/openzeppelin-contracts@4.4.1
+  - OpenZeppelin/openzeppelin-contracts-upgradeable@4.4.1
 compiler:
   solc:
     remappings:
-      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
-      - ‘@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1'
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.2'
+      - '@openzeppelin=OpenZeppelin/'
